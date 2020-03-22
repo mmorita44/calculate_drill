@@ -1,4 +1,5 @@
 from .drill import Drill
+import sys
 
 def main():
-    return Drill().calculate()
+    return Drill(sys.argv[1]).calculate()
