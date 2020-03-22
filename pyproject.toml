@@ -6,11 +6,10 @@ authors = ["Masato Morita <m.morita44@hotmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-openpyxl = "^3.0"
+openpyxl = "^3.0.3"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.4"
-rope = "^0.14.0"
+pylint = "^2.4.4"
 
 [tool.poetry.scripts]
 calculate_drill = 'calculate_drill.calculate_drill:main'
