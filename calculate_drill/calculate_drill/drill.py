@@ -1,21 +1,39 @@
 import random
-import openpyxl
 import traceback
+import openpyxl
+
 
 class Drill:
 
     def __init__(self, file):
+        '''コンストラクタ
+
+        Args:
+            file (str): 書き込み先のファイル名
+        Returns:
+            None
+        '''
         self.row_max = 27
         self.cloumn_max = 20
         self.file = file
 
-    def calculate(self):
+    def write(self, first_min, first_max, second_min, second_max):
+        '''計算式の書き込み
+
+        Args:
+            first_min (int): 1項目の最小値
+            first_max (int): 1項目の最大値
+            first_max (int): 2項目の最小値
+            first_max (int): 3項目の最大値
+        Returns:
+            None
+        '''
         try:
             book = openpyxl.load_workbook(self.file)
             sheet = book['Sheet1']
             records = []
-            for first in range(100, 999):
-                for second in range(10, 99):
+            for first in range(first_min, first_max):
+                for second in range(second_min, second_max):
                     records.append([first, second])
             random.shuffle(records)
 
@@ -35,6 +53,6 @@ class Drill:
 
             book.save(self.file)
             return 0
-        except Exception as ignored:
+        except Exception:
             print(traceback.format_exc())
             return 1
